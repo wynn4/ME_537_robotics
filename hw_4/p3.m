@@ -89,3 +89,5 @@ count = 0;
 %         pause(0.01)
 %     end
 % end
+
+% method 2: Jacobian transpose
