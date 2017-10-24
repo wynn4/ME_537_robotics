@@ -1,4 +1,4 @@
-% Jesse Wynn HW2 ME 537 Robotics
+% Jesse Wynn HW2 ME 537 robotics
 clc
 % clear all
 close all
@@ -29,6 +29,8 @@ count = 0;
 x = zeros(1000000, 1);
 y = zeros(1000000, 1);
 z = zeros(1000000, 1);
+
+joint_angles = zeros(1000000, 6);
 
 % initial joint angles (at the negative extreme
 q0 = [-1, -1, -1, -1, -1, -1];
@@ -87,10 +89,13 @@ for i = 0:num_positions
                     % increment the counter
                     count = count + 1;
                     
-                    % add the positions onto growing x vectors
+                    % add the positions onto vectors
                     x(count) = x_pos;
                     y(count) = y_pos;
                     z(count) = z_pos;
+                    
+                    % save off the corresponding joint angles (q)
+                    joint_angles(count,:) = q;
                     
 %                     p560.plot(q)
                     
@@ -134,13 +139,16 @@ x_plot = x(1:count);
 y_plot = y(1:count);
 z_plot = z(1:count);
 
+% and the joint angles you want to keep
+joint_angles = joint_angles(1:count,:);
+
 figure(1)
 plot3(x_plot, y_plot, z_plot,'.')
 hold on
 xlabel('x position (m)')
 ylabel('y position (m)')
 zlabel('z position (m)')
-title('Robot reachable workspace')
+title('robot reachable workspace')
 % p560.plot([0, 0, 0, 0, 0, 0])
 p560.plot(q)
 
@@ -148,17 +156,17 @@ figure(2)
 plot(x_plot, y_plot,'.')
 xlabel('x position (m)')
 ylabel('y position (m)')
-title('Robot reachable workspace xy plane')
+title('robot reachable workspace xy plane')
 
 figure(3)
 plot(x_plot, z_plot,'.')
 xlabel('x position (m)')
 zlabel('z position (m)')
-title('Robot reachable workspace xz plane')
+title('robot reachable workspace xz plane')
 
 figure(4)
 plot(y_plot, z_plot,'.')
 ylabel('y position (m)')
 zlabel('z position (m)')
-title('Robot reachable workspace yz plane')
+title('robot reachable workspace yz plane')
 
