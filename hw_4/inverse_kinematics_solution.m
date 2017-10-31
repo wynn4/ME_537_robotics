@@ -103,7 +103,7 @@ for i=1:1:num_trials
         R2base = T_cur(1:3,1:3);
         delta_base = [R2base, zeros(3,3); zeros(3,3), R2base]*delta;
 
-        %perform the pseudo-inverse method
+        %perform the Jacobian-Transpose method
         q = q + J(1:3,:)'*K_trans*delta_base(1:3);
         
         counter = counter + 1
