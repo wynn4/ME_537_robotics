@@ -24,6 +24,7 @@ r = 1;  % radius (m)
 % goal location info
 goal = [0, 2, 4];   % [x, y, z] (meters)
 
+
 % for plot
 [x,y,z] = sphere(30);
 
@@ -34,7 +35,7 @@ surf(x+obst_location(1), y+obst_location(2), z+obst_location(3))
 plot3(goal(1), goal(2), goal(3),'*')
 view(110,20)
 
-q_s = compute_robot_path(robot, q_init, goal, obst_location, r);
+q_s = compute_robot_path(robot, robot3, robot2 , q_init, goal, obst_location, r);
 
 % animate the robot
 disp('moving robot...')
