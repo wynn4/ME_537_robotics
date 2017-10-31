@@ -241,7 +241,7 @@ end
 
 % if the path is clear to spin about q2...
 if avoidance_type == 2
-    q_avoid = q_init(2):0.02:obst_heading_yz+(pi/2);   % going to rotate 90 degrees
+    q_avoid = q_init(2):0.02:obst_heading_yz+degtorad(120);   % going to rotate 120 degrees
     % initialize another counter
     count = 0;
     % joint 1
