@@ -26,3 +26,7 @@ html/
 
 # pdf directory
 #pdf/
+
+# zip folders
+*.zip
+*.tar
