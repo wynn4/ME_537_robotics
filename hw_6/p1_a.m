@@ -37,10 +37,18 @@ disp(tau_toolbox)
 % Killpack
 
 %% part c
+% use rne function to get Inertai (M) matrix
 
+M1 = recursive_newton_euler(rrr, q, [0 0 0], [1 0 0])
+M2 = recursive_newton_euler(rrr, q, [0 0 0], [0 1 0])
+M3 = recursive_newton_euler(rrr, q, [0 0 0], [0 0 1])
+
+M_toolbox = rrr.inertia(q)
 
 %% part d
+% use rne function to get Coriolis and compare to toolbox
 
+C = recursive_newton_euler(rrr, q, qdot, [0 0 0])
 
-
+C_toolbox = rrr.coriolis(q, qdot)
 
