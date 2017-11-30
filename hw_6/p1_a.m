@@ -28,5 +28,19 @@ qddot = [-pi/6 pi/3 pi/6];
 
 tau_toolbox = rrr.rne(q, qdot, qddot);
 
+% output
+disp("tau vs toolbox tau:")
+disp(tau(3,:))
+disp(tau_toolbox)
+
+% I don't get the same result but I do get the same result as the Dr.
+% Killpack
+
+%% part c
+
+
+%% part d
+
+
 
 
