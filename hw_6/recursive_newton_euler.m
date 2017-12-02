@@ -1,4 +1,4 @@
-function [f, tau] = recursive_newton_euler(robot, q, qdot, qddot)
+function tau = recursive_newton_euler(robot, q, qdot, qddot)
 
 % implement Recursive Newton-Euler method
 
@@ -93,8 +93,8 @@ Tau3 = R_4_3 * Tau4 - cross(f3, r_2_c) + cross(R_4_3 * f4, r_plus_c) + I * alpha
 Tau2 = R_3_2 * Tau3 - cross(f2, r_1_c) + cross(R_3_2 * f3, r_plus_c) + I * alpha2 + cross(w2, I * w2);
 Tau1 = R_2_1 * Tau2 - cross(f1, r_0_c) + cross(R_2_1 * f2, r_plus_c) + I * alpha1 + cross(w1, I * w1);
 
-tau = [Tau1, Tau2, Tau3];
+tau = [Tau1(3), Tau2(3), Tau3(3)];
 
-f = [f1, f2, f3];
+% f = [f1, f2, f3];
 
 end
